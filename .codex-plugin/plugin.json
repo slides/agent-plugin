@@ -1,0 +1,39 @@
+{
+  "name": "slides",
+  "version": "0.1.0",
+  "description": "Read, view, create, edit, organize, and visually verify presentations on Slides.com.",
+  "author": {
+    "name": "Slides",
+    "url": "https://slides.com/"
+  },
+  "homepage": "https://slides.com/",
+  "repository": "https://github.com/slides/agent-plugin",
+  "keywords": [
+    "presentations",
+    "slides",
+    "authoring"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Slides",
+    "shortDescription": "Read, create, and refine Slides.com presentations.",
+    "longDescription": "Read and inspect existing presentations, build new presentations, revise individual slides, organize a deck, and visually verify the result.",
+    "developerName": "Slides",
+    "category": "Productivity",
+    "capabilities": [
+      "Read and view presentations",
+      "Create presentations",
+      "Edit and organize slides",
+      "Visual verification"
+    ],
+    "websiteURL": "https://slides.com/",
+    "privacyPolicyURL": "https://slides.com/privacy",
+    "termsOfServiceURL": "https://slides.com/terms",
+    "defaultPrompt": [
+      "Create a polished presentation from this brief.",
+      "Improve the story and design of my existing deck.",
+      "Review my slides visually and fix layout issues."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "slides": {
+      "type": "http",
+      "url": "https://mcp.slides.com/"
+    }
+  }
+}

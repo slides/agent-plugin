@@ -1,0 +1,11 @@
+interface:
+  display_name: "Slides Authoring"
+  short_description: "Read, create, and refine Slides.com presentations"
+  default_prompt: "Use $slides-authoring to create and visually verify a presentation."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "slides"
+      description: "Slides.com presentation authoring and visual verification tools"
+      transport: "streamable_http"
+      url: "https://mcp.slides.com/"
