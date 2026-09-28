@@ -1,11 +1,11 @@
 {
   "name": "slides",
-  "version": "0.1.0",
-  "description": "Read, view, create, edit, organize, and visually verify presentations on Slides.com.",
+  "version": "0.2.0",
+  "description": "Read, view, create, edit, organize, share, and visually verify presentations on Slides.com.",
   "author": {
-    "name": "Slides",
+    "name": "Slides.com",
     "url": "https://slides.com/"
   },
-  "homepage": "https://slides.com/",
+  "homepage": "https://slides.com/docs/connect-ai-tools",
   "repository": "https://github.com/slides/agent-plugin"
 }

@@ -1,12 +1,12 @@
 {
   "name": "slides",
-  "version": "0.1.0",
-  "description": "Read, view, create, edit, organize, and visually verify presentations on Slides.com.",
+  "version": "0.2.0",
+  "description": "Read, view, create, edit, organize, share, and visually verify presentations on Slides.com.",
   "author": {
-    "name": "Slides",
+    "name": "Slides.com",
     "url": "https://slides.com/"
   },
-  "homepage": "https://slides.com/",
+  "homepage": "https://slides.com/docs/connect-ai-tools",
   "repository": "https://github.com/slides/agent-plugin",
   "keywords": [
     "presentations",
@@ -15,25 +15,28 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Slides",
-    "shortDescription": "Read, create, and refine Slides.com presentations.",
-    "longDescription": "Read and inspect existing presentations, build new presentations, revise individual slides, organize a deck, and visually verify the result.",
-    "developerName": "Slides",
+    "displayName": "Slides.com",
+    "shortDescription": "Create, edit, and share presentations",
+    "longDescription": "Read and inspect existing presentations, build new presentations, revise individual slides, organize a deck, share it with a link, and visually verify the result.",
+    "developerName": "Slides.com",
     "category": "Productivity",
     "capabilities": [
       "Read and view presentations",
       "Create presentations",
       "Edit and organize slides",
+      "Share presentations",
       "Visual verification"
     ],
     "websiteURL": "https://slides.com/",
     "privacyPolicyURL": "https://slides.com/privacy",
     "termsOfServiceURL": "https://slides.com/terms",
     "defaultPrompt": [
-      "Create a polished presentation from this brief.",
-      "Improve the story and design of my existing deck.",
-      "Review my slides visually and fix layout issues."
-    ]
+      "Help me create a five-slide presentation from a brief and give me a link I can share.",
+      "Draft an email to my team summarizing my latest presentation.",
+      "Turn the latest earnings report from Spotify into a five-slide overview."
+    ],
+    "logo": "./assets/icon.png",
+    "composerIcon": "./assets/icon.png"
   },
   "mcpServers": "./.mcp.json"
 }

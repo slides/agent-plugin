@@ -1,0 +1,14 @@
+{
+  "name": "slides",
+  "owner": {
+    "name": "Slides.com"
+  },
+  "plugins": [
+    {
+      "name": "slides",
+      "source": "./",
+      "description": "Read, view, create, edit, organize, share, and visually verify presentations on Slides.com."
+    }
+  ],
+  "description": "Slides.com presentation authoring with a shared skill and MCP connection."
+}
