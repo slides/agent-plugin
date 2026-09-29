@@ -7,7 +7,7 @@
     {
       "name": "slides",
       "source": "./",
-      "description": "Read, view, create, edit, organize, share, and visually verify presentations on Slides.com."
+      "description": "Create, edit, preview, and share Slides.com presentations."
     }
   ],
   "description": "Slides.com presentation authoring with a shared skill and MCP connection."

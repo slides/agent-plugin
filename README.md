@@ -43,4 +43,10 @@ The authoring skill fetches the current Slides.com authoring guide through `get_
 
 The server and presentation operations live in the Slides.com web application. This package contains no server code or credentials. It is maintained in `plugins/slides` in the Slides.com web monorepo and published to [slides/agent-plugin](https://github.com/slides/agent-plugin).
 
+## License
+
+The plugin's skill, configuration, and documentation are licensed under the [MIT License](LICENSE), copyright 2026 Slides, Inc.
+
+The license covers this plugin package only. Access to the Slides.com application and hosted MCP service remains subject to the [Slides.com Terms of Service](https://slides.com/terms) and the account requirements above.
+
 [Help](https://slides.com/docs) · [Contact support](mailto:support@slides.com) · [Privacy](https://slides.com/privacy) · [Terms](https://slides.com/terms)

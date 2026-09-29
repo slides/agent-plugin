@@ -1,7 +1,7 @@
 {
   "name": "slides",
-  "version": "0.2.0",
-  "description": "Read, view, create, edit, organize, share, and visually verify presentations on Slides.com.",
+  "version": "0.2.1",
+  "description": "Create, edit, preview, and share Slides.com presentations.",
   "author": {
     "name": "Slides.com",
     "url": "https://slides.com/"

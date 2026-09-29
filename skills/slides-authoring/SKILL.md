@@ -19,16 +19,16 @@ For reading, summarizing, exploring, exporting, or transforming presentation con
 
 ## Authoring workflow
 
-1. Before writing slide HTML, call `get_authoring_guide` and follow its instructions. Plan the narrative and visual changes before writing. Preserve the deck's existing theme, tone, dimensions, and markup conventions unless the user asks to change them.
-2. Use `create_deck` with a `slides` array for a new presentation. Supply slide HTML and optional speaker notes following the authoring guide; array order determines slide order. Use `update_slide` for focused edits, and `add_slide`, `move_slides`, or `remove_slides` for structural changes. Make the smallest coherent set of mutations.
-3. After a meaningful batch of visual edits, call `get_slide_screenshot` for the affected slides. Check clipping, overlap, hierarchy, contrast, spacing, and consistency; repair visible problems before finishing. Screenshot calls are limited, so do not use one after every trivial change.
+1. Before writing slide HTML, call `get_authoring_guide` once and follow it as the technical source of truth for markup, layout, theme, and canvas. If the guide cannot be retrieved, report the connection problem and retry before writing HTML. Plan the narrative and visual changes before writing. Preserve the deck's existing theme, tone, dimensions, and markup conventions unless the user asks to change them.
+2. Use `create_deck` with a `slides` array for a new presentation. Supply slide HTML and optional speaker notes following the authoring guide; array order determines slide order. Use `update_slide` for focused edits, and `add_slide`, `move_slides`, or `remove_slides` for structural changes. Make the smallest coherent set of mutations. Keep text concise enough for the canvas; split overloaded material across slides instead of shrinking it until it is hard to read, and put presentation-only guidance in speaker notes.
+3. After creating or editing slides, call `get_slide_screenshot` to check clipping, overlap, hierarchy, contrast, spacing, and consistency, and repair visible problems before finishing. Screenshots are rate limited, so after a repair, re-check only the slides you fixed.
 4. Use `view_deck` to show the presentation to the user. If the host cannot display the interactive preview, give the returned deck link. Summarize what changed; use screenshots, not the viewer alone, to verify rendering.
 
-## Authoring guidance
+## Sharing and exporting
 
-Call `get_authoring_guide` once before creating or editing slide HTML. Use its current markup, layout, theme, and canvas guidance as the technical source of truth. If the guide cannot be retrieved, report the connection problem and retry before writing HTML.
-
-Keep text concise enough for the canvas. Split overloaded material across slides instead of shrinking it until it is hard to read. Put presentation-only guidance in speaker notes.
+- New decks start out private. When the user wants to share one, prefer `create_deck_share`, which creates a private sharing link that only people with the link can view. Private links require a Pro account. Use `list_deck_shares` to find existing links and `revoke_deck_share` to disable one.
+- If the user wants the deck publicly visible to everyone, set `visibility` to `all` with `update_deck`. Public decks already have a shareable URL and do not need a private link.
+- Use `create_deck_export` to start a PDF or ZIP export. Exports run asynchronously: call `get_deck_export` until it is ready, waiting `poll_after_seconds` between checks, then give the user the download link.
 
 ## Editing discipline
 
@@ -37,3 +37,7 @@ Keep text concise enough for the canvas. Split overloaded material across slides
 - Re-read a slide after a complex mutation if its returned content is insufficient to verify the exact saved state.
 - Prefer a small number of intentional writes over repeated speculative rewrites.
 - If a screenshot exposes a problem that cannot be fixed confidently, describe the issue rather than claiming the deck is finished.
+
+## Slides.com documentation
+
+For questions about Slides.com features, plans, or settings that the tools do not answer, read the documentation if you can fetch web pages. Start at https://slides.com/docs.md, a Markdown index that links to each category and its articles. Every docs page is also available as Markdown by adding `.md` to its URL.
