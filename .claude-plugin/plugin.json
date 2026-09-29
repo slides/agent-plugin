@@ -8,5 +8,6 @@
     "url": "https://slides.com/"
   },
   "homepage": "https://slides.com/docs/connect-ai-tools",
+  "privacyPolicyUrl": "https://slides.com/privacy",
   "repository": "https://github.com/slides/agent-plugin"
 }
