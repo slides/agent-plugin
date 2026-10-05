@@ -15,6 +15,10 @@ Use the Slides.com MCP server as the source of truth for deck content and render
 2. For an existing deck, call `get_deck` for deck-level context and `list_slides` for the compact outline. Follow pagination when the whole narrative matters.
 3. Fetch only the slides needed for the task with `get_slides`, in batches of at most 10 IDs. Avoid requesting complete deck HTML unless the task truly requires it.
 
+When the user wants to browse their library visually, use `browse_decks` if the server advertises it. Its optional `q` and `sort` arguments initialize the deck library; `page` and `per_page` paginate its results. `list_decks` and `search_decks` remain the data tools. Use `view_deck` to open a known deck when a preview is needed and that deck is not already open, or when the user explicitly asks to open it. Its optional `slide_id` comes from `list_slides`.
+
+The deck library can attach a selected deck and slide to conversation context. Treat this as the user's current selection, not permission to modify the deck. Use the supplied deck ID to answer or work on the user's request while reusing the library's existing preview. Opening the library alone does not send a message. Open previews update live in supported hosts; do not call `view_deck` again just to refresh after an edit or respond to a library message. If live updates are unavailable or paused, the user can use the preview's Refresh button. Continue using screenshots for visual verification after edits.
+
 For reading, summarizing, exploring, exporting, or transforming presentation content into another format, deliver the requested answer, export, or draft without changing the source deck unless asked. Apply the authoring workflow below only when creating or editing slides.
 
 ## Authoring workflow
@@ -22,7 +26,7 @@ For reading, summarizing, exploring, exporting, or transforming presentation con
 1. Before writing slide HTML, call `get_authoring_guide` once and follow it as the technical source of truth for markup, layout, theme, and canvas. If the guide cannot be retrieved, report the connection problem and retry before writing HTML. Plan the narrative and visual changes before writing. Preserve the deck's existing theme, tone, dimensions, and markup conventions unless the user asks to change them.
 2. Use `create_deck` with a `slides` array for a new presentation. Supply slide HTML and optional speaker notes following the authoring guide; array order determines slide order. Use `update_slide` for focused edits, and `add_slide`, `move_slides`, or `remove_slides` for structural changes. Make the smallest coherent set of mutations. Keep text concise enough for the canvas; split overloaded material across slides instead of shrinking it until it is hard to read, and put presentation-only guidance in speaker notes.
 3. After creating or editing slides, call `get_slide_screenshot` to check clipping, overlap, hierarchy, contrast, spacing, and consistency, and repair visible problems before finishing. Screenshots are rate limited, so after a repair, re-check only the slides you fixed.
-4. Use `view_deck` to show the presentation to the user. If the host cannot display the interactive preview, give the returned deck link. Summarize what changed; use screenshots, not the viewer alone, to verify rendering.
+4. Reuse an open library or deck preview while its content updates live. If the presentation has no open preview, use `view_deck` to show it once. If the host cannot display the interactive preview, give the deck link. Summarize what changed; use screenshots, not the viewer alone, to verify rendering.
 
 ## Sharing and exporting
 
